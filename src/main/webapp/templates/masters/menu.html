@@ -1,63 +1,77 @@
+<!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&region=IN&key=AIzaSyBEYDdJx8BB-fQa_H2qKoUO84oUrH8BFQE" type="text/javascript"></script>
+<script>
+    function initialize() {
+    console.log("Getting Inside Initialize");
+    var options = {
+    types: ['(cities)'],
+            componentRestrictions: {country: "us"}
+    };
+    var input = document.getElementById('searchTextField');
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+    }
+</script>-->
 <marquee class="col-sm-12 col-md-12 col-lg-12 alert alert-info">
-    <span style="font-family: Impact; font-size: 12pt">Welcome To SALES</span>
+    <span style="font-family: Impact; font-size: 12pt">Welcome To SALES Application</span>
     <span style="font-family: Impact; font-size: 12pt" ng-repeat="notification in notificationList">&nbsp;&nbsp;<strong>|</strong>&nbsp;&nbsp;{{notification.notification}}</span>
 </marquee>
+<!--<input id="searchTextField" type="text" size="50" ng-model="searchLocation" placeholder="Enter a location" autocomplete="on">-->
 <div class="panel panel-default">   
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-3" style="height: 360px;border-right: 1px solid;">                
-                <a data-ui-sref-active="active" data-ui-sref="admin.master_menu">
+            <div class="col-md-6 col-sm-6 col-xs-6" style="height: 360px;border-right: 1px solid;">                
+                <a data-ui-sref-active="active" data-ui-sref="admin.order_head">
                     <div class="container col-sm-12 col-md-12 col-xs-12">                            
-                        <img src="images/icons_svg/server.svg" class="image">                            
+                        <img src="images/icons_svg/invoice.svg" class="image">                            
                         <div class="overlay">
                             <div class="text">
-                                <h2>Masters</h2>
+                                <h2>Create Order</h2>
                             </div>
                         </div>
                     </div>                                                
                 </a>                
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-3" style="height: 360px;border-right: 1px solid;border-left: 1px solid;">                
+            <div class="col-md-6 col-sm-6 col-xs-6" style="height: 360px;border-right: 1px solid;border-left: 1px solid;">                
                 <a data-ui-sref-active="active" data-ui-sref="admin.department_head_list">
                     <div class="container col-sm-12 col-md-12 col-xs-12">                            
-                        <img src="images/icons_svg/crown.svg" class="image">                            
+                        <img src="images/icons_svg/history.svg" class="image">                            
                         <div class="overlay">
                             <div class="text">
-                                <h2>Department Heads List</h2>
+                                <h2>Total Orders Booked</h2>
                             </div>
                         </div>
                     </div>                                                
                 </a>                
             </div> 
-            <div class="col-md-3 col-sm-3 col-xs-3" style="height: 360px;border-right: 1px solid;border-left: 1px solid;">
-                <div class="form-group text-center">
-                    <!--<a data-ui-sref-active="active" data-ui-sref="admin.report_menu">-->
-                    <a data-ui-sref-active="active" data-ui-sref="admin.report_menu">
-                        <div class="container col-sm-12 col-md-12 col-xs-12">                            
-                            <img src="images/icons_svg/analytics.svg" class="image">                            
-                            <div class="overlay">
-                                <div class="text">
-                                    <h2>Reports</h2> 
-                                </div>
+            <!--            <div class="col-md-3 col-sm-3 col-xs-3" style="height: 360px;border-right: 1px solid;border-left: 1px solid;">
+                            <div class="form-group text-center">
+                                <a data-ui-sref-active="active" data-ui-sref="admin.report_menu">
+                                <a data-ui-sref-active="active" data-ui-sref="admin.report_menu">
+                                    <div class="container col-sm-12 col-md-12 col-xs-12">                            
+                                        <img src="images/icons_svg/analytics.svg" class="image">                            
+                                        <div class="overlay">
+                                            <div class="text">
+                                                <h2>Reports</h2> 
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </a>
                             </div>
-                        </div>    
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-3" style="height: 360px;border-left: 1px solid;">
-                <div class="form-group text-center">
-                    <a data-ui-sref-active="active" data-ui-sref="admin.profile">
-                        <div class="container col-sm-12 col-md-12 col-xs-12">                            
-                            <img src="images/icons_svg/user_1.svg" class="image">                            
-                            <div class="overlay">
-                                <div class="text">
-                                    <h2>Update Profile</h2> 
-                                </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3" style="height: 360px;border-left: 1px solid;">
+                            <div class="form-group text-center">
+                                <a data-ui-sref-active="active" data-ui-sref="admin.profile">
+                                    <div class="container col-sm-12 col-md-12 col-xs-12">                            
+                                        <img src="images/icons_svg/user_1.svg" class="image">                            
+                                        <div class="overlay">
+                                            <div class="text">
+                                                <h2>Update Profile</h2> 
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </a>
                             </div>
-                        </div>    
-                    </a>
-                </div>
-            </div>
+                        </div>-->
         </div>        
     </div>
 </div>

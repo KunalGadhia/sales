@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-angular.module("ales.states.admin", [])
+angular.module("sales.states.admin", [])
         .config(function ($stateProvider, templateRoot) {
             $stateProvider.state('admin', {
                 'url': '/admin',
@@ -48,12 +48,7 @@ angular.module("ales.states.admin", [])
             });
         })
         .controller('AdminMasterMenu', function ($rootScope, $scope, UserService) {
-//            $scope.user = $rootScope.currentUser;
-//            UserService.findByUsername({
-//                'username': $scope.user.username
-//            }, function (userObject) {
-//                
-//            });
+          
         })
 //        .controller('EmployeeMenu', function ($scope, UserService) {
 //        })

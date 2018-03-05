@@ -4,7 +4,6 @@ angular.module("sales", [
     'ngResource',
     'angularFileUpload',
     'googlechart',
-//    'safedeals.map',
     'ngAnimate',
     'angular.filter',
     //'ngFileSaver',
@@ -12,25 +11,12 @@ angular.module("sales", [
     'sales.filters',
     //  include constants
     'sales.constants',    
-//    'safedeals.services.branch',
     'sales.services.user',
-//    'stars.services.employee',
-//    'stars.services.kra_details',
-//    'stars.services.form2_details',
-//    'stars.services.additional_details',
-//    'stars.services.company',
     // include controllers and states
     'sales.states',
-//    'stars.states.admin',
-//    'stars.states.user',
-//    'stars.states.kra',
-//    'stars.states.profile',
-//    'stars.states.evaluate',
-//    'stars.states.admin_menu',
-//    'stars.states.reports',
-//    'stars.states.employee',
-//    'stars.states.hr_menu',
-    'sales.states.auth'
+    'sales.states.admin',
+    'sales.states.auth',
+    'sales.states.order'
 
 ])
 

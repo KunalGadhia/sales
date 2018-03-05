@@ -24,7 +24,8 @@
         <script src="${pageContext.request.contextPath}/webjars/underscorejs/1.5.1/underscore.min.js"></script>        
         <!--<script src="${pageContext.request.contextPath}/webjars/jquery/2.1.4/jquery.min.js"></script>--> 
         <script src="${pageContext.request.contextPath}/js/lib/angular-google-map.js"></script>
-        <script src="${pageContext.request.contextPath}/js/lib/angular-simple-logger.js"></script>        
+        <script src="${pageContext.request.contextPath}/js/lib/angular-simple-logger.js"></script> 
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&region=IN&key=AIzaSyBEYDdJx8BB-fQa_H2qKoUO84oUrH8BFQE" type="text/javascript"></script>
         <!--        <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&region=IN&key=AIzaSyBEYDdJx8BB-fQa_H2qKoUO84oUrH8BFQE"></script>
                 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
         <script src="${pageContext.request.contextPath}/js/lib/fusioncharts.js"></script>
@@ -373,93 +374,13 @@
         <!--states-->
         <script src="${pageContext.request.contextPath}/js/states.js"></script>
         <script src="${pageContext.request.contextPath}/js/states/admin.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/user.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/kra.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/profile.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/evaluate.js"></script>
-        <!--<script src="${pageContext.request.contextPath}/js/states/evaluate.js"></script>-->
-        <script src="${pageContext.request.contextPath}/js/states/admin_menu.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/reports.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/employee.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/hr_menu.js"></script>
-<!--        <script src="${pageContext.request.contextPath}/js/states/employee.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/notification.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/party.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/segment.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/sale_type.js"></script>
         <script src="${pageContext.request.contextPath}/js/states/order.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/department.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/reason.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/kitchen_component.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/raw_material.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/standard_carcass_dimension.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/color.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/standard_carcass_price.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/color_constraint.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/finish_price.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/section_profile.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/carcass_subtype.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/panel_material_thickness.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/handle_price.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/shutter_finish_price.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/user.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/shutter_handle_mapping.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/filler_finish_price.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/drawer_handle_mapping.js"></script>
-        <script src="${pageContext.request.contextPath}/js/states/rate_contract.js"></script>-->
 
         <!--Services-->
         <script src="${pageContext.request.contextPath}/js/services/user_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/employee_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/kra_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/form2_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/additional_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/company_service.js"></script>
-<!--        <script src="${pageContext.request.contextPath}/js/services/notification_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/party_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/segment_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/sale_type_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/order_head_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/department_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/reason_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/kitchen_component_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/raw_material_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/standard_carcass_dimension_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/color_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/standard_carcass_price_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/carcass_order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/color_constraint_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/finish_price_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/section_profile_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/carcass_subtype_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/panel_material_thickness_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/panel_order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/filler_order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/pelmet_order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/cornice_order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/handle_price_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/handle_order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/shutter_order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/shutter_finish_price_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/drawer_order_details_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/shutter_handle_mapping_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/filler_finish_price_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/drawer_handle_mapping_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/rate_contract_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/rate_contract_detail_service.js"></script>
-        <script src="${pageContext.request.contextPath}/js/services/erp_integration_service.js"></script>-->
 
     </head>
     <body style="font-family: 'Roboto', sans-serif;">
-        <div data-ui-view></div>
-        <!--<h1>Hello World!</h1>-->
-    </body>
-    <!--    <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>JSP Page</title>
-        </head>
-        <body>
-            <h1>Hello World!</h1>
-        </body>-->
+        <div data-ui-view></div>        
+    </body>   
 </html>

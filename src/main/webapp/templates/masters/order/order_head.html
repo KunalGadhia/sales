@@ -1,0 +1,212 @@
+<div class="panel panel-default">
+    <div class="panel-heading text-center">       
+        <div class="pull-left">            
+            <button class="btn btn-default" 
+                    type="button"
+                    onclick="window.history.back()">
+                Back
+            </button>
+        </div>
+        <div class="pull-right">            
+        </div>
+        <div>
+            <h3>Order Entry</h3>
+        </div>
+        <form role="role" ng-submit="saveOrderHead(editableOrderHead)">
+            <div class="modal-body">
+                <div class="modal-body row">
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">                        
+                            Customer Basic Details
+                        </h4>
+                    </div>
+                    <div class="modal-body">                    
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group" >
+                                    <label>Customer Name</label>                                
+                                    <input class="form-control" ng-model="editableOrderHead.customerName" placeholder="Enter Customer Name" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Contact Number</label>                                
+                                    <input type="text" class="form-control" ng-model="editableOrderHead.contactNum" placeholder="Enter Contact Number" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Email Id</label>
+                                    <input type="email" class="form-control" placeholder="Enter Email Id" ng-model="editableOrderHead.emailId">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Order Date</label>
+                                    <input class="form-control" type="date" placeholder="DD-MM-YYYY" ng-model="editableOrderHead.orderDate"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="modal-body">
+                <div class="modal-body row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">                        
+                                Billing Address
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Floor No</label>
+                                        <input type="number" min="0" class="form-control" placeholder="Enter Floor Number" ng-model="editableOrderHead.billingFloorNum" required="required" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Can Lift Be Used</label>
+                                        <input type="checkbox" class="form-control" ng-model="editableOrderHead.billingLift" ng-show="showLift"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Billing Address 1</label>
+                                        <input class="form-control" placeholder="Address 1" ng-model="editableOrderHead.billingAdd1" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Billing Address 2</label>
+                                        <input class="form-control" placeholder="Address 2" ng-model="editableOrderHead.billingAdd2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Billing Address 3</label>
+                                        <input class="form-control" placeholder="Address 3" ng-model="editableOrderHead.billingAdd3" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Billing Postal Code</label>
+                                        <input class="form-control" placeholder="Postal Code" ng-model="editableOrderHead.billingPostalCode" />
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="row">                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Billing City</label>
+                                        <input class="form-control" placeholder="Enter City" ng-model="editableOrderHead.billingCity" required=""/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Billing State</label>
+                                        <input class="form-control" placeholder="Enter State" ng-model="editableOrderHead.billingState" required=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Delivery Address Similar to Billing Address</label>
+                                        <input type="checkbox" class="form-control" ng-model="sameAsBilling"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">                                    
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">                        
+                                Delivery Address
+                            </h4>
+                        </div>
+                        <div class="modal-body">                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Floor No</label>
+                                        <input type="number" min="0" class="form-control" placeholder="Enter Floor Number" ng-model="editableOrderHead.deliveryFloorNum" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Can Lift Be Used</label>
+                                        <input type="checkbox" class="form-control" ng-model="editableOrderHead.deliveryLift" />
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Delivery Address 1</label>
+                                        <input class="form-control" placeholder="Address 1" ng-model="editableOrderHead.deliveryAdd1" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Delivery Address 2</label>
+                                        <input class="form-control" placeholder="Address 2" ng-model="editableOrderHead.deliveryAdd2" />
+                                    </div>
+                                </div>
+                            </div>                           
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Delivery Address 3</label>
+                                        <input class="form-control" placeholder="Address 3" ng-model="editableOrderHead.deliveryAdd3" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Delivery Postal Code</label>
+                                        <input class="form-control" placeholder="Postal Code" ng-model="editableOrderHead.deliveryPostalCode" />
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="row">                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Delivery City</label>
+                                        <input class="form-control" placeholder="Enter City" ng-model="editableOrderHead.deliveryCity" required=""/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Delivery State</label>
+                                        <input class="form-control" placeholder="Enter State" ng-model="editableOrderHead.deliveryState" required=""/>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <div class="modal-footer">
+                <button class="btn btn-lg btn-primary">
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+                <button type="button"
+                        onclick="window.history.back()"
+                        class="btn btn-link" >
+                    cancel
+                </button>				
+            </div>
+        </form>
+    </div>
+</div>
+<div data-ui-view=""></div>
+

@@ -23,14 +23,14 @@ angular.module("sales.states", ['ngAnimate', 'ui.bootstrap'])
                 'https://www.youtube.com/embed/**'
             ]);
         })
-        .controller('LoginController', function ($scope, $state, $stateParams, $timeout, UserService, AuthFactory) {            
+        .controller('LoginController', function ($scope, $state, $stateParams, $timeout, UserService, AuthFactory) {
             $scope.username = $stateParams.username;
             $scope.message = $stateParams.message;
             $scope.error = $stateParams.error;
             $timeout(function () {
                 $scope.message = false;
             }, 3000);
-            $scope.login = function (username, password) {                
+            $scope.login = function (username, password) {
                 UserService.login({
                     'username': username,
                     'password': password
@@ -45,7 +45,7 @@ angular.module("sales.states", ['ngAnimate', 'ui.bootstrap'])
                             $state.go("admin.employees");
                         }
                     });
-                }, function () {                    
+                }, function () {
                     $scope.error = true;
                     $scope.username = "";
                     $scope.password = "";
