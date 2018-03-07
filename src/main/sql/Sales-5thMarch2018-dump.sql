@@ -16,6 +16,66 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `order_head`
+--
+
+DROP TABLE IF EXISTS `order_head`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order_head` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY',
+  `order_num` varchar(100) NOT NULL,
+  `customer_name` varchar(100) NOT NULL,
+  `contact_num` int(11) NOT NULL DEFAULT '0',
+  `email_id` varchar(100) DEFAULT NULL,
+  `order_date` datetime DEFAULT NULL,
+  `billing_floor_num` int(11) NOT NULL DEFAULT '0',
+  `billing_lift` tinyint(1) NOT NULL DEFAULT '0',
+  `billing_add1` varchar(500) DEFAULT NULL,
+  `billing_add2` varchar(500) DEFAULT NULL,
+  `billing_add3` varchar(500) DEFAULT NULL,
+  `billing_postal_code` int(11) DEFAULT NULL,
+  `billing_city` varchar(100) DEFAULT NULL,
+  `billing_state` varchar(100) DEFAULT NULL,
+  `delivery_floor_num` int(11) NOT NULL DEFAULT '0',
+  `delivery_lift` tinyint(1) NOT NULL DEFAULT '0',
+  `delivery_add1` varchar(500) DEFAULT NULL,
+  `delivery_add2` varchar(500) DEFAULT NULL,
+  `delivery_add3` varchar(500) DEFAULT NULL,
+  `delivery_postal_code` int(11) DEFAULT NULL,
+  `delivery_city` varchar(100) DEFAULT NULL,
+  `delivery_state` varchar(100) DEFAULT NULL,  
+  `created_by` int(11) DEFAULT NULL COMMENT 'REF user.id',  
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `order_head_created_by_fk` (`created_by`),
+  CONSTRAINT `order_head_created_by_fk` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1430 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `sku_stock_master`
+--
+
+DROP TABLE IF EXISTS `sku_stock_master`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sku_stock_master` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY',
+  `sku` varchar(500) NOT NULL,
+  `product_name` varchar(500) NOT NULL,
+  `product_description` varchar(100) DEFAULT NULL,
+  `color` varchar(100) DEFAULT NULL,
+  `t48_stock` int(11) DEFAULT '0',
+  `nimji_stock` int(11) DEFAULT '0',
+  `total_stock` int(11) DEFAULT '0',
+  `price` double DEFAULT '0',  
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=409 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `setting`
 --
 

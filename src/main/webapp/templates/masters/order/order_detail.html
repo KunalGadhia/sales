@@ -1,16 +1,175 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
+        <div class="pull-left">
+            <a data-ui-sref="admin.masters"
+               class="btn btn-default" ng-if="adminLogin">
+                <i class="fa fa-arrow-left"></i>
+                Back
+            </a>
+            <a data-ui-sref="admin.dealers"
+               class="btn btn-default" ng-if="dealerLogin">
+                <i class="fa fa-arrow-left"></i>
+                Back
+            </a>
+        </div>
+        <div class="pull-right">
+
+        </div>
+        <div>
+            <h3>Customer Info</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <label class="col-sm-5 text-left">Name :</label>
+                    <span class="col-sm-7 text-left">{{orderHeadObject.customerName}}</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <label class="col-sm-6 text-left">Contact Number :</label>
+                    <span class="col-sm-6 text-left">{{orderHeadObject.contactNum}}</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <label class="col-sm-5 text-left">Email Id :</label>
+                    <span class="col-sm-7 text-left">{{orderHeadObject.emailId}}</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <label class="col-sm-5 text-left">Order Date :</label>
+                    <span class="col-sm-7 text-left">{{orderHeadObject.bookingDate| date}}</span>
+                </div>
+            </div>           
+        </div>        
+    </div>   
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
+        <div>
+            <h3>Add Products To Cart</h3>
+        </div>
+        <div class="modal-body">
+            <form role="role" ng-submit="saveOrderDetail(editableOrderDetail)">                                    
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group" >
+                            <label>Select Product</label>
+                            <input class="form-control"
+                                       placeholder="Enter Product Name"
+                                       uib-typeahead="skuList.productName as skuList.productName for skuList in searchSku($viewValue)"
+                                       typeahead-on-select="setSku($item)"
+                                       typeahead-editable="false"
+                                       typeahead-loading="loadingSku" 
+                                       typeahead-no-results="noSkuFound"
+                                       ng-model="skuObject.productName" />
+                                <p ng-show="noSkuFound" class="help-block text-muted">No SKU Found</p>
+                                <p ng-show="loadingSku" class="help-block text-muted">Loading...</p>
+                            <!--<input class="form-control" ng-model="skuObject.productName" placeholder="Enter Product Name" required="required">-->
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Color</label>                                
+                            <input type="text" class="form-control" ng-model="skuObject.color" placeholder="Product Color" required="required" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input type="number" min="0" class="form-control" placeholder="Enter Quantity" ng-model="editableOrderDetail.quantity">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input class="form-control" type="number" step="any" placeholder="Price" ng-model="editableOrderDetail.price"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">                            
+                            <button type="submit" class="btn btn-primary" style="margin-top: 24px">Add To <i class="fa fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>                
+            </form>
+        </div>        
+    </div>    
+    <div class="panel-heading text-center" ng-show="corniceDetailsList.length > 0">
+        <div>
+            <h3>Cornice Details List</h3>
+        </div>
+        <div class="modal-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-right">#</th>
+                        <th>Product Code</th>
+                        <th>Description</th>
+                        <th>Colors</th>
+                        <th>Section Profile</th>
+                        <th>Shelf Count</th>                        
+                        <th>Thickness</th>
+                        <th>Width</th>
+                        <th>Length</th>
+                        <th>Depth</th>
+                        <th>Remark</th>
+                        <th>Quantity</th>
+                        <th>Price (INR)</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="orderDetails in corniceDetailsList">
+                        <td class="text-right">{{ currentOffset + $index + 1}}</td>
+                        <td class="text-left">{{ orderDetails.productCode}}</td>
+                        <td class="text-left">
+                            <span>{{orderDetails.kitchenComponentObject.component}}</span>
+                            <span>in {{orderDetails.rawMaterialObject.material}}</span>
+                            <span>with {{orderDetails.finishPriceObject.finishName}} as finish.</span>
+                            <span ng-if="orderDetails.bsm === true"> (Both Side)</span>
+                        </td>
+                        <td class="text-left">
+                            <span>Color :{{orderDetails.colorObject.colorName}}</span>                            
+                        </td>
+                        <td>N/A</td>                        
+                        <td class="text-left">N/A</td>
+                        <td class="text-left">{{orderDetails.thickness}} mm</td>  
+                        <td class="text-left">{{ orderDetails.width}} mm</td>
+                        <td class="text-left">{{ orderDetails.length}} mm</td>
+                        <td class="text-left">N/A</td> 
+                        <td class="text-left">{{ orderDetails.remark}}</td>
+                        <td class="text-left">{{ orderDetails.quantity}}</td> 
+                        <td class="text-left">&#8377;{{ orderDetails.price}}</td> 
+                        <td class="text-right">                            
+                            <a data-ui-sref="admin.masters_order_details.cornice_delete({ corniceDetailId: orderDetails.id})"
+                               class="btn btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <a data-ui-sref="admin.dealers" ng-if="dealerLogin">
+            <button class="btn btn-lg btn-primary" >
+                <i class="fa fa-check-circle"></i>
+                Done
+            </button>
+        </a>
+        <a data-ui-sref="admin.masters" ng-if="adminLogin">
+            <button class="btn btn-lg btn-primary">
+                <i class="fa fa-check-circle"></i>
+                Done
+            </button>
+        </a>
+        <a target="_blank" data-ui-sref="proforma_invoice_display({ orderHeadId : orderHead.id})">
+            <button class="btn btn-lg btn-primary" >
+                <i class="fa fa-print"></i>
+                Generate Proforma Invoice
+            </button>
+        </a>            
+    </div>        
+</div>
+
+<div data-ui-view=""></div>

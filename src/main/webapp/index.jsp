@@ -378,6 +378,9 @@
 
         <!--Services-->
         <script src="${pageContext.request.contextPath}/js/services/user_service.js"></script>
+        <script src="${pageContext.request.contextPath}/js/services/sku_stock_service.js"></script>
+        <script src="${pageContext.request.contextPath}/js/services/order_head_service.js"></script>
+        <script src="${pageContext.request.contextPath}/js/services/order_detail_service.js"></script>
 
     </head>
     <body style="font-family: 'Roboto', sans-serif;">

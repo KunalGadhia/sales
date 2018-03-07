@@ -12,6 +12,9 @@ angular.module("sales", [
     //  include constants
     'sales.constants',    
     'sales.services.user',
+    'sales.services.sku_stock',
+    'sales.services.order_head',
+    'sales.services.order_detail',
     // include controllers and states
     'sales.states',
     'sales.states.admin',
