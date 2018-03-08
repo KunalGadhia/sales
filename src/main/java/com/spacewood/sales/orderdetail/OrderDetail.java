@@ -14,8 +14,10 @@ import java.util.Objects;
 public class OrderDetail {
     private Integer id;
     private Integer productId;
+    private String productCode;
     private String productName;
     private String productColor;
+    private String productLocation;
     private Integer quantity;
     private Double price;
     private Integer orderHeadId;
@@ -36,6 +38,14 @@ public class OrderDetail {
         this.productId = productId;
     }
 
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
     public String getProductName() {
         return productName;
     }
@@ -50,6 +60,14 @@ public class OrderDetail {
 
     public void setProductColor(String productColor) {
         this.productColor = productColor;
+    }
+
+    public String getProductLocation() {
+        return productLocation;
+    }
+
+    public void setProductLocation(String productLocation) {
+        this.productLocation = productLocation;
     }
 
     public Integer getQuantity() {
@@ -79,13 +97,15 @@ public class OrderDetail {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.id);
-        hash = 67 * hash + Objects.hashCode(this.productId);
-        hash = 67 * hash + Objects.hashCode(this.productName);
-        hash = 67 * hash + Objects.hashCode(this.productColor);
-        hash = 67 * hash + Objects.hashCode(this.quantity);
-        hash = 67 * hash + Objects.hashCode(this.price);
-        hash = 67 * hash + Objects.hashCode(this.orderHeadId);
+        hash = 17 * hash + Objects.hashCode(this.id);
+        hash = 17 * hash + Objects.hashCode(this.productId);
+        hash = 17 * hash + Objects.hashCode(this.productCode);
+        hash = 17 * hash + Objects.hashCode(this.productName);
+        hash = 17 * hash + Objects.hashCode(this.productColor);
+        hash = 17 * hash + Objects.hashCode(this.productLocation);
+        hash = 17 * hash + Objects.hashCode(this.quantity);
+        hash = 17 * hash + Objects.hashCode(this.price);
+        hash = 17 * hash + Objects.hashCode(this.orderHeadId);
         return hash;
     }
 
@@ -101,10 +121,16 @@ public class OrderDetail {
             return false;
         }
         final OrderDetail other = (OrderDetail) obj;
+        if (!Objects.equals(this.productCode, other.productCode)) {
+            return false;
+        }
         if (!Objects.equals(this.productName, other.productName)) {
             return false;
         }
         if (!Objects.equals(this.productColor, other.productColor)) {
+            return false;
+        }
+        if (!Objects.equals(this.productLocation, other.productLocation)) {
             return false;
         }
         if (!Objects.equals(this.id, other.id)) {
@@ -127,7 +153,7 @@ public class OrderDetail {
 
     @Override
     public String toString() {
-        return "OrderDetail{" + "id=" + id + ", productId=" + productId + ", productName=" + productName + ", productColor=" + productColor + ", quantity=" + quantity + ", price=" + price + ", orderHeadId=" + orderHeadId + '}';
+        return "OrderDetail{" + "id=" + id + ", productId=" + productId + ", productCode=" + productCode + ", productName=" + productName + ", productColor=" + productColor + ", productLocation=" + productLocation + ", quantity=" + quantity + ", price=" + price + ", orderHeadId=" + orderHeadId + '}';
     }
         
 }

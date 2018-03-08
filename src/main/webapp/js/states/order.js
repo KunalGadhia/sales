@@ -15,6 +15,11 @@ angular.module("sales.states.order", [])
                 'templateUrl': templateRoot + '/masters/order/order_detail.html',
                 'controller': 'OrderDetailsController'
             });
+            $stateProvider.state('admin.order_details.order_delete', {
+                'url': '/:orderDetailId/delete',
+                'templateUrl': templateRoot + '/masters/order/order_detail_delete.html',
+                'controller': 'OrderDetailDeleteController'
+            });
         })
         .controller('OrderHeadController', function ($scope, $state, $rootScope, OrderHeadService, UserService) {
             $scope.editableOrderHead = {};
@@ -74,12 +79,18 @@ angular.module("sales.states.order", [])
                 $scope.orderHeadObject = orderHeadObject;
             });
 
+            $scope.orderDetailsList = OrderDetailsService.findByOrderHeadId({
+                'orderHeadId': $stateParams.orderHeadId
+            });
+
             $scope.searchSku = function (skuString) {
                 return SkuStockService.findByNameLike({
                     'name': skuString
                 }).$promise;
             };
             $scope.setSku = function (sku) {
+                $scope.stockOver = false;
+                $scope.disableDetailSave = false;
                 $scope.sku = sku.productName;
                 $scope.skuObject = sku;
             };
@@ -87,19 +98,65 @@ angular.module("sales.states.order", [])
             $scope.$watch('editableOrderDetail.quantity', function (productQuantity) {
                 $scope.editableOrderDetail.price = ($scope.skuObject.price * productQuantity);
             });
-
+            $scope.stockOver = false;
+            $scope.disableDetailSave = false;
             $scope.saveOrderDetail = function (editableOrderDetail) {
+                $scope.t48Stock = $scope.skuObject.t48Stock;
+                $scope.nimjiStock = $scope.skuObject.nimjiStock;
+                if ($scope.t48Stock >= editableOrderDetail.quantity) {                    
+                    $scope.skuObject.t48Stock = ($scope.skuObject.t48Stock - editableOrderDetail.quantity);
+                    $scope.skuObject.totalStock = ($scope.skuObject.totalStock - editableOrderDetail.quantity);
+                    editableOrderDetail.productLocation = "T48";                    
+                    $scope.skuObject.$save();
+                } else if ($scope.t48Stock <= editableOrderDetail.quantity) {                    
+                    if ($scope.nimjiStock >= editableOrderDetail.quantity) {                        
+                        $scope.skuObject.nimjiStock = ($scope.skuObject.nimjiStock - editableOrderDetail.quantity);
+                        $scope.skuObject.totalStock = ($scope.skuObject.totalStock - editableOrderDetail.quantity);
+                        editableOrderDetail.productLocation = "NIMJI";                        
+                        $scope.skuObject.$save();
+                    } else {
+                        $scope.stockOver = true;
+                        $scope.disableDetailSave = true;                        
+                    }
+                }
+
                 editableOrderDetail.productId = $scope.skuObject.id;
-                editableOrderDetail.productName = $scope.skuObject.productName;
+                editableOrderDetail.productCode = $scope.skuObject.sku;
+                editableOrderDetail.productName = $scope.skuObject.productDescription;
                 editableOrderDetail.productColor = $scope.skuObject.color;
                 editableOrderDetail.orderHeadId = $stateParams.orderHeadId;                
-                console.log("Order Detail Save Object :%O", editableOrderDetail);
-                
                 OrderDetailsService.save(editableOrderDetail, function (orderD) {
                     $state.go('admin.order_details', {
-                        'orderHeadId' : $stateParams.orderHeadId
+                        'orderHeadId': $stateParams.orderHeadId
                     }, {'reload': true});
                 });
             };
 
+        })
+        .controller('OrderDetailDeleteController', function (SkuStockService, OrderDetailsService, $scope, $stateParams, $state, paginationLimit) {            
+            $scope.editableOrderDetail = OrderDetailsService.get({'id': $stateParams.orderDetailId});
+            $scope.deleteOrderDetail = function (orderDetail) {                
+                if (orderDetail.productLocation === "T48") {                    
+                    $scope.skuObject = SkuStockService.get({
+                        'id': orderDetail.productId
+                    }, function (skuObject) {
+                        $scope.skuObject.t48Stock = ($scope.skuObject.t48Stock + orderDetail.quantity);
+                        $scope.skuObject.totalStock = ($scope.skuObject.totalStock + orderDetail.quantity);
+                        $scope.skuObject.$save();
+                    });
+                } else if (orderDetail.productLocation === "NIMJI") {
+                    $scope.skuObject = SkuStockService.get({
+                        'id': orderDetail.productId
+                    }, function (skuObject) {
+                        $scope.skuObject.nimjiStock = ($scope.skuObject.nimjiStock + orderDetail.quantity);
+                        $scope.skuObject.totalStock = ($scope.skuObject.totalStock + orderDetail.quantity);
+                        $scope.skuObject.$save();
+                    });
+                }
+                orderDetail.$delete(function () {
+                    $state.go('admin.order_details', {
+                        'orderHeadId': $scope.editableOrderDetail.orderHeadId
+                    }, {'reload': true});
+                });
+            };
         });

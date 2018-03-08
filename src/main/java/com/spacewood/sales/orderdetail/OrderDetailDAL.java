@@ -25,8 +25,10 @@ public class OrderDetailDAL {
 
         public static final String ID = "id";        
         public static final String PRODUCT_ID = "product_id";
+        public static final String PRODUCT_CODE = "product_code";
         public static final String PRODUCT_NAME = "product_name";
         public static final String PRODUCT_COLOR = "product_color";
+        public static final String PRODUCT_LOCATION = "product_location";
         public static final String QUANTITY = "quantity";
         public static final String PRICE = "price";
         public static final String ORDER_HEAD_ID = "order_head_id";        
@@ -45,8 +47,10 @@ public class OrderDetailDAL {
                 .withTableName(TABLE_NAME)
                 .usingColumns(                        
                         Columns.PRODUCT_ID,
+                        Columns.PRODUCT_CODE,
                         Columns.PRODUCT_NAME,
                         Columns.PRODUCT_COLOR,
+                        Columns.PRODUCT_LOCATION,
                         Columns.QUANTITY,
                         Columns.PRICE,
                         Columns.ORDER_HEAD_ID
@@ -79,8 +83,10 @@ public class OrderDetailDAL {
         Map<String, Object> parameters = new HashMap<>();
         
         parameters.put(Columns.PRODUCT_ID, orderDetail.getProductId());
+        parameters.put(Columns.PRODUCT_CODE, orderDetail.getProductCode());
         parameters.put(Columns.PRODUCT_NAME, orderDetail.getProductName());
         parameters.put(Columns.PRODUCT_COLOR, orderDetail.getProductColor());
+        parameters.put(Columns.PRODUCT_LOCATION, orderDetail.getProductLocation());
         parameters.put(Columns.QUANTITY, orderDetail.getQuantity());
         parameters.put(Columns.PRICE, orderDetail.getPrice());
         parameters.put(Columns.ORDER_HEAD_ID, orderDetail.getOrderHeadId());
@@ -98,16 +104,20 @@ public class OrderDetailDAL {
     public OrderDetail update(OrderDetail orderDetail) {
         String sqlQuery = "UPDATE " + TABLE_NAME + " SET "
                 + Columns.PRODUCT_ID + " = ?,"
+                + Columns.PRODUCT_CODE + " = ?,"
                 + Columns.PRODUCT_NAME + " = ?, "
                 + Columns.PRODUCT_COLOR + " = ?,"
+                + Columns.PRODUCT_LOCATION + " = ?,"
                 + Columns.QUANTITY + " = ?,"
                 + Columns.PRICE + " = ?,"                
                 + Columns.ORDER_HEAD_ID + " = ? WHERE " + Columns.ID + " = ?";
         Number updatedCount = jdbcTemplate.update(sqlQuery,
                 new Object[]{
                     orderDetail.getProductId(),
+                    orderDetail.getProductCode(),
                     orderDetail.getProductName(),
                     orderDetail.getProductColor(),
+                    orderDetail.getProductLocation(),
                     orderDetail.getQuantity(),
                     orderDetail.getPrice(),
                     orderDetail.getOrderHeadId(),                    
