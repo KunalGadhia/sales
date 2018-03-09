@@ -80,7 +80,7 @@
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label>Price</label>
-                            <input class="form-control" type="number" step="any" placeholder="Price" ng-model="editableOrderDetail.price"/>
+                            <input class="form-control" type="number" step="any" placeholder="Price" ng-model="editableOrderDetail.price" readonly=""/>
                         </div>
                     </div>
                     <div class="col-sm-2">
@@ -147,8 +147,84 @@
                     </tr>
                 </tbody>
             </table>
+            <hr style="border-top: 2px solid">
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-sm-10 text-right"><strong>Total Amount :</strong></div>
+                <div class="col-md-2 col-lg-2 col-sm-2 text-center"><strong>&#8377; {{ orderDetailsList | total:'price' | number:2}}</strong></div>
+            </div>
         </div>
     </div>
+    <div class="panel-heading text-center">
+        <div>
+            <h3>Commercials</h3>
+        </div>
+        <div class="modal-body">
+            <form role="role" ng-submit="updateOrderHead(editableOrderHead)">                                    
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group" >
+                            <label>Transaportation Charges (Including Labour)</label>                            
+                            <input type="number" step="any" class="form-control" ng-model="editableOrderHead.transportationCharges" placeholder="Enter Transportation Charges" required="required">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Installation Charges</label>                                
+                            <input type="number" step="any" class="form-control" ng-model="editableOrderHead.installationCharges" placeholder="Enter Installation Charges" required="required">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Total Amount (In Rupees)</label>
+                            <input type="number" step="any" min="0" class="form-control" placeholder="Total Amount" ng-model="editableOrderHead.totalAmount">
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Mode Of Payment</label>                            
+                            <select class="form-control" ng-model="editableOrderHead.paymentMode" required="">
+                                <option value="">Select Mode Of Payment</option>
+                                <option value="CASH">Cash</option>
+                                <option value="CREDIT_CARD">Credit Card</option>
+                                <option value="DEBIT_CARD">Debit Card</option>
+                                <option value="CHEQUE">Cheque</option>
+                                <option value="RTGS">RTGS</option>
+                                <option value="NEFT">NEFT</option>
+                                <option value="DIGITAL_WALLET">E-Wallet</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Amount Paid (In Rupees)</label>
+                            <input type="number" step="any" min="0" class="form-control" placeholder="Total Amount Paid" ng-model="editableOrderHead.totalAmountPaid">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Amount Left (In Rupees)</label>
+                            <input type="number" step="any" min="0" class="form-control" placeholder="Total Amount Left" ng-model="editableOrderHead.totalAmountLeft">
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-lg btn-primary">
+                            <i class="fa fa-save"></i>
+                            Save
+                        </button>
+<!--                        <button type="button"
+                                onclick="window.history.back()"
+                                class="btn btn-link" >
+                            cancel
+                        </button>				-->
+                    </div>
+                </div>                
+            </form>            
+        </div>        
+    </div>    
 
     <div class="modal-footer">
         <!--        <a data-ui-sref="admin.dealers" ng-if="dealerLogin">
@@ -157,18 +233,18 @@
                         Done
                     </button>
                 </a>-->
-        <a data-ui-sref="admin.masters">
-            <button class="btn btn-lg btn-primary">
-                <i class="fa fa-check-circle"></i>
-                Done
-            </button>
-        </a>
-        <a target="_blank" data-ui-sref="proforma_invoice_display({ orderHeadId : orderHead.id})">
-            <button class="btn btn-lg btn-primary" >
-                <i class="fa fa-print"></i>
-                Generate Proforma Invoice
-            </button>
-        </a>            
+        <!--        <a data-ui-sref="admin.masters">
+                    <button class="btn btn-lg btn-primary">
+                        <i class="fa fa-check-circle"></i>
+                        Done
+                    </button>
+                </a>
+                <a target="_blank" data-ui-sref="proforma_invoice_display({ orderHeadId : orderHead.id})">
+                    <button class="btn btn-lg btn-primary" >
+                        <i class="fa fa-print"></i>
+                        Generate Proforma Invoice
+                    </button>
+                </a>            -->
     </div>        
 </div>
 
