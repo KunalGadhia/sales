@@ -1218,11 +1218,10 @@ a {
     font-weight:bold;
 }
 
-.top hr{
-    margin-top: 2px;
-    margin-bottom: 20px;
+hr{
+    margin: 10px 0 !important;
     border: 0;
-    border-top: 2px solid #bcbec0;
+    border-top: 1px solid #000 !important;
 }
 /* .email{ */
 /* font-size: 13px !important; */
@@ -1360,9 +1359,10 @@ header.carousel .fill {
 }
 
 /* Footer Styles */
-
-footer {
-    margin: 50px 0px 0px 0px;
+footer{
+    background-color: #231f20;
+    padding: 20px 0;
+    margin-top: 30px;
 }
 footer p{
     font-size:16px;

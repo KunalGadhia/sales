@@ -20,6 +20,16 @@ angular.module("sales.states.order", [])
                 'templateUrl': templateRoot + '/masters/order/order_detail_delete.html',
                 'controller': 'OrderDetailDeleteController'
             });
+            $stateProvider.state('admin.order_history', {
+                'url': '/order_history',
+                'templateUrl': templateRoot + '/masters/order/order_history.html',
+                'controller': 'OrderHistoryController'
+            });
+            $stateProvider.state('receipt_display', {
+                'url': '/:orderHeadId/receipt',
+                'templateUrl': templateRoot + '/masters/order/receipt.html',
+                'controller': 'ReceiptDisplayController'
+            });
         })
         .controller('OrderHeadController', function ($scope, $state, $rootScope, OrderHeadService, UserService) {
             $scope.editableOrderHead = {};
@@ -85,22 +95,13 @@ angular.module("sales.states.order", [])
             $scope.orderDetailsList = OrderDetailsService.findByOrderHeadId({
                 'orderHeadId': $stateParams.orderHeadId
             });
-
-//            $scope.$watch('orderDetailsList', function (orderDetaisList) {
-//                console.log("orderDetails List :%O", $scope.orderDetailsList);
-//                var a = 0;
-//                angular.forEach(orderDetaisList, function (orderObject) {
-//                    a = a + orderObject.price;
-//                    console.log("$scope.totalPrice :%O", a);
-//                    $scope.editableOrderHead.totalAmount = a;
-//                });
-//            });
-
+            
             $scope.searchSku = function (skuString) {
                 return SkuStockService.findByNameLike({
                     'name': skuString
                 }).$promise;
             };
+            
             $scope.setSku = function (sku) {
                 $scope.stockOver = false;
                 $scope.disableDetailSave = false;
@@ -128,6 +129,16 @@ angular.module("sales.states.order", [])
             });
             $scope.stockOver = false;
             $scope.disableDetailSave = false;
+            $scope.updateOrderHead = function (editableOrderHead) {
+                console.log("Update Order Head Data :%O", editableOrderHead);
+                editableOrderHead.$save(function () {
+                    $state.go('admin.masters', {'reload': true});
+                });
+            };
+            $scope.$watch('editableOrderHead.totalAmountPaid', function (amountPaid) {
+                console.log("Amount Paid :" + amountPaid);
+                $scope.editableOrderHead.totalAmountLeft = ($scope.editableOrderHead.totalAmount - amountPaid);
+            });
             $scope.saveOrderDetail = function (editableOrderDetail) {
                 $scope.t48Stock = $scope.skuObject.t48Stock;
                 $scope.nimjiStock = $scope.skuObject.nimjiStock;
@@ -144,7 +155,8 @@ angular.module("sales.states.order", [])
                         $scope.skuObject.$save();
                     } else {
                         $scope.stockOver = true;
-                        $scope.disableDetailSave = true;
+//                        $scope.disableDetailSave = true;
+                        editableOrderDetail.productLocation = "NO_LOCATION";
                     }
                 }
                 editableOrderDetail.productId = $scope.skuObject.id;
@@ -179,11 +191,58 @@ angular.module("sales.states.order", [])
                         $scope.skuObject.totalStock = ($scope.skuObject.totalStock + orderDetail.quantity);
                         $scope.skuObject.$save();
                     });
+                } else if(orderDetail.productLocation === "NO_LOCATION"){
+                    
                 }
+                
                 orderDetail.$delete(function () {
                     $state.go('admin.order_details', {
                         'orderHeadId': $scope.editableOrderDetail.orderHeadId
                     }, {'reload': true});
                 });
             };
+        })
+        .controller('OrderHistoryController', function (OrderHeadService, UserService, $scope, $stateParams, $rootScope, $state, paginationLimit) {
+            console.log("What are STate Params Pelmet:%O", $stateParams);
+            $scope.currentUser = $rootScope.currentUser;
+            UserService.findByUsername({
+                'username': $scope.currentUser.username
+            }, function (userObject) {
+                console.log("THis is User Object :%O", userObject);
+                $scope.orderHeadList = OrderHeadService.findAllList();
+//                if (userObject.role === "ROLE_ADMIN") {
+//                    $scope.adminBackButton = true;
+//                    $scope.dealerBackButton = false;
+//                } else if (userObject.role === "ROLE_DEALER") {
+//                    $scope.adminBackButton = false;
+//                    $scope.dealerBackButton = true;
+//                }
+//                $scope.orderHeadList = OrderHeadService.findOrderGenerationSource({
+//                    'userId': userObject.id
+//                }, function (orderHeadList) {
+//                    console.log("Order Head List :%O", orderHeadList);
+//                    angular.forEach(orderHeadList, function (orderHeadObject) {
+//                        orderHeadObject.billingPartyObject = PartyService.get({
+//                            'id': orderHeadObject.billingPartyId
+//                        });
+//                        orderHeadObject.deliveryPartyObject = PartyService.get({
+//                            'id': orderHeadObject.deliveryPartyId
+//                        });
+//                    });
+//                });
+                console.log("Order Head List :%O", $scope.orderHeadList);
+            });
+        })
+        .controller('ReceiptDisplayController', function (OrderHeadService, OrderDetailsService, $scope, $filter, $stateParams, $state, paginationLimit) {
+            $scope.currentDate = new Date();
+            console.log("Stateparams :%O", $stateParams);
+            OrderHeadService.get({
+                'id': $stateParams.orderHeadId
+            }, function (orderHeadObject) {
+                $scope.orderHeadObject = orderHeadObject;                
+            });
+
+            $scope.orderDetailsList = OrderDetailsService.findByOrderHeadId({
+                'orderHeadId': $stateParams.orderHeadId
+            });
         });

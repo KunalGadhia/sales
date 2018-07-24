@@ -36,6 +36,12 @@ public class OrderHead {
     private String deliveryCity;
     private String deliveryState;
     private Integer createdBy;
+    private Double transportationCharges;
+    private Double installationCharges;
+    private Double totalAmount;
+    private String paymentMode;
+    private Double totalAmountPaid;
+    private Double totalAmountLeft;
 
     public Integer getId() {
         return id;
@@ -221,32 +227,86 @@ public class OrderHead {
         this.createdBy = createdBy;
     }
 
+    public Double getTransportationCharges() {
+        return transportationCharges;
+    }
+
+    public void setTransportationCharges(Double transportationCharges) {
+        this.transportationCharges = transportationCharges;
+    }
+
+    public Double getInstallationCharges() {
+        return installationCharges;
+    }
+
+    public void setInstallationCharges(Double installationCharges) {
+        this.installationCharges = installationCharges;
+    }
+
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public String getPaymentMode() {
+        return paymentMode;
+    }
+
+    public void setPaymentMode(String paymentMode) {
+        this.paymentMode = paymentMode;
+    }
+
+    public Double getTotalAmountPaid() {
+        return totalAmountPaid;
+    }
+
+    public void setTotalAmountPaid(Double totalAmountPaid) {
+        this.totalAmountPaid = totalAmountPaid;
+    }
+
+    public Double getTotalAmountLeft() {
+        return totalAmountLeft;
+    }
+
+    public void setTotalAmountLeft(Double totalAmountLeft) {
+        this.totalAmountLeft = totalAmountLeft;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        hash = 79 * hash + Objects.hashCode(this.orderNum);
-        hash = 79 * hash + Objects.hashCode(this.customerName);
-        hash = 79 * hash + Objects.hashCode(this.contactNum);
-        hash = 79 * hash + Objects.hashCode(this.emailId);
-        hash = 79 * hash + Objects.hashCode(this.bookingDate);
-        hash = 79 * hash + Objects.hashCode(this.billingFloorNum);
-        hash = 79 * hash + Objects.hashCode(this.billingLift);
-        hash = 79 * hash + Objects.hashCode(this.billingAdd1);
-        hash = 79 * hash + Objects.hashCode(this.billingAdd2);
-        hash = 79 * hash + Objects.hashCode(this.billingAdd3);
-        hash = 79 * hash + Objects.hashCode(this.billingPostalCode);
-        hash = 79 * hash + Objects.hashCode(this.billingCity);
-        hash = 79 * hash + Objects.hashCode(this.billingState);
-        hash = 79 * hash + Objects.hashCode(this.deliveryFloorNum);
-        hash = 79 * hash + Objects.hashCode(this.deliveryLift);
-        hash = 79 * hash + Objects.hashCode(this.deliveryAdd1);
-        hash = 79 * hash + Objects.hashCode(this.deliveryAdd2);
-        hash = 79 * hash + Objects.hashCode(this.deliveryAdd3);
-        hash = 79 * hash + Objects.hashCode(this.deliveryPostalCode);
-        hash = 79 * hash + Objects.hashCode(this.deliveryCity);
-        hash = 79 * hash + Objects.hashCode(this.deliveryState);
-        hash = 79 * hash + Objects.hashCode(this.createdBy);
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.id);
+        hash = 67 * hash + Objects.hashCode(this.orderNum);
+        hash = 67 * hash + Objects.hashCode(this.customerName);
+        hash = 67 * hash + Objects.hashCode(this.contactNum);
+        hash = 67 * hash + Objects.hashCode(this.emailId);
+        hash = 67 * hash + Objects.hashCode(this.bookingDate);
+        hash = 67 * hash + Objects.hashCode(this.billingFloorNum);
+        hash = 67 * hash + Objects.hashCode(this.billingLift);
+        hash = 67 * hash + Objects.hashCode(this.billingAdd1);
+        hash = 67 * hash + Objects.hashCode(this.billingAdd2);
+        hash = 67 * hash + Objects.hashCode(this.billingAdd3);
+        hash = 67 * hash + Objects.hashCode(this.billingPostalCode);
+        hash = 67 * hash + Objects.hashCode(this.billingCity);
+        hash = 67 * hash + Objects.hashCode(this.billingState);
+        hash = 67 * hash + Objects.hashCode(this.deliveryFloorNum);
+        hash = 67 * hash + Objects.hashCode(this.deliveryLift);
+        hash = 67 * hash + Objects.hashCode(this.deliveryAdd1);
+        hash = 67 * hash + Objects.hashCode(this.deliveryAdd2);
+        hash = 67 * hash + Objects.hashCode(this.deliveryAdd3);
+        hash = 67 * hash + Objects.hashCode(this.deliveryPostalCode);
+        hash = 67 * hash + Objects.hashCode(this.deliveryCity);
+        hash = 67 * hash + Objects.hashCode(this.deliveryState);
+        hash = 67 * hash + Objects.hashCode(this.createdBy);
+        hash = 67 * hash + Objects.hashCode(this.transportationCharges);
+        hash = 67 * hash + Objects.hashCode(this.installationCharges);
+        hash = 67 * hash + Objects.hashCode(this.totalAmount);
+        hash = 67 * hash + Objects.hashCode(this.paymentMode);
+        hash = 67 * hash + Objects.hashCode(this.totalAmountPaid);
+        hash = 67 * hash + Objects.hashCode(this.totalAmountLeft);
         return hash;
     }
 
@@ -310,6 +370,9 @@ public class OrderHead {
         if (!Objects.equals(this.deliveryState, other.deliveryState)) {
             return false;
         }
+        if (!Objects.equals(this.paymentMode, other.paymentMode)) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -331,11 +394,27 @@ public class OrderHead {
         if (!Objects.equals(this.createdBy, other.createdBy)) {
             return false;
         }
+        if (!Objects.equals(this.transportationCharges, other.transportationCharges)) {
+            return false;
+        }
+        if (!Objects.equals(this.installationCharges, other.installationCharges)) {
+            return false;
+        }
+        if (!Objects.equals(this.totalAmount, other.totalAmount)) {
+            return false;
+        }
+        if (!Objects.equals(this.totalAmountPaid, other.totalAmountPaid)) {
+            return false;
+        }
+        if (!Objects.equals(this.totalAmountLeft, other.totalAmountLeft)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "OrderHead{" + "id=" + id + ", orderNum=" + orderNum + ", customerName=" + customerName + ", contactNum=" + contactNum + ", emailId=" + emailId + ", bookingDate=" + bookingDate + ", billingFloorNum=" + billingFloorNum + ", billingLift=" + billingLift + ", billingAdd1=" + billingAdd1 + ", billingAdd2=" + billingAdd2 + ", billingAdd3=" + billingAdd3 + ", billingPostalCode=" + billingPostalCode + ", billingCity=" + billingCity + ", billingState=" + billingState + ", deliveryFloorNum=" + deliveryFloorNum + ", deliveryLift=" + deliveryLift + ", deliveryAdd1=" + deliveryAdd1 + ", deliveryAdd2=" + deliveryAdd2 + ", deliveryAdd3=" + deliveryAdd3 + ", deliveryPostalCode=" + deliveryPostalCode + ", deliveryCity=" + deliveryCity + ", deliveryState=" + deliveryState + ", createdBy=" + createdBy + '}';
-    }            
+        return "OrderHead{" + "id=" + id + ", orderNum=" + orderNum + ", customerName=" + customerName + ", contactNum=" + contactNum + ", emailId=" + emailId + ", bookingDate=" + bookingDate + ", billingFloorNum=" + billingFloorNum + ", billingLift=" + billingLift + ", billingAdd1=" + billingAdd1 + ", billingAdd2=" + billingAdd2 + ", billingAdd3=" + billingAdd3 + ", billingPostalCode=" + billingPostalCode + ", billingCity=" + billingCity + ", billingState=" + billingState + ", deliveryFloorNum=" + deliveryFloorNum + ", deliveryLift=" + deliveryLift + ", deliveryAdd1=" + deliveryAdd1 + ", deliveryAdd2=" + deliveryAdd2 + ", deliveryAdd3=" + deliveryAdd3 + ", deliveryPostalCode=" + deliveryPostalCode + ", deliveryCity=" + deliveryCity + ", deliveryState=" + deliveryState + ", createdBy=" + createdBy + ", transportationCharges=" + transportationCharges + ", installationCharges=" + installationCharges + ", totalAmount=" + totalAmount + ", paymentMode=" + paymentMode + ", totalAmountPaid=" + totalAmountPaid + ", totalAmountLeft=" + totalAmountLeft + '}';
+    }
+    
 }

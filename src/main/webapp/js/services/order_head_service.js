@@ -15,6 +15,11 @@ angular.module("sales.services.order_head")
                         'userId': '@userId'
                     },
                     'isArray': true
+                },
+                'findAllList': {
+                    'method': 'GET',
+                    'url': restRoot + '/order_head/find_all_list',                    
+                    'isArray': true
                 }
             });
         });

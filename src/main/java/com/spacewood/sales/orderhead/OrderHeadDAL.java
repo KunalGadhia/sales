@@ -49,6 +49,12 @@ public class OrderHeadDAL {
         public static final String DELIVERY_CITY = "delivery_city";
         public static final String DELIVERY_STATE = "delivery_state";
         public static final String CREATED_BY = "created_by";
+        public static final String TRANSPORTATION_CHARGES = "transportation_charges";
+        public static final String INSTALLATION_CHARGES = "installation_charges";
+        public static final String TOTAL_AMOUNT = "total_amount";
+        public static final String PAYMENT_MODE = "payment_mode";
+        public static final String TOTAL_AMOUNT_PAID = "total_amount_paid";
+        public static final String TOTAL_AMOUNT_LEFT = "total_amount_left";
     }
 
     public static final String TABLE_NAME = "order_head";
@@ -83,7 +89,13 @@ public class OrderHeadDAL {
                         Columns.DELIVERY_POSTAL_CODE,
                         Columns.DELIVERY_CITY,
                         Columns.DELIVERY_STATE,
-                        Columns.CREATED_BY
+                        Columns.CREATED_BY,
+                        Columns.TRANSPORTATION_CHARGES,
+                        Columns.INSTALLATION_CHARGES,
+                        Columns.TOTAL_AMOUNT,
+                        Columns.PAYMENT_MODE,
+                        Columns.TOTAL_AMOUNT_PAID,
+                        Columns.TOTAL_AMOUNT_LEFT
                 )
                 .usingGeneratedKeyColumns(Columns.ID);
     }
@@ -163,6 +175,12 @@ public class OrderHeadDAL {
         parameters.put(Columns.DELIVERY_CITY, orderHead.getDeliveryCity());
         parameters.put(Columns.DELIVERY_STATE, orderHead.getDeliveryState());
         parameters.put(Columns.CREATED_BY, orderHead.getCreatedBy());
+        parameters.put(Columns.TRANSPORTATION_CHARGES, orderHead.getTransportationCharges());
+        parameters.put(Columns.INSTALLATION_CHARGES, orderHead.getInstallationCharges());
+        parameters.put(Columns.TOTAL_AMOUNT, orderHead.getTotalAmount());
+        parameters.put(Columns.PAYMENT_MODE, orderHead.getPaymentMode());
+        parameters.put(Columns.TOTAL_AMOUNT_PAID, orderHead.getTotalAmountPaid());
+        parameters.put(Columns.TOTAL_AMOUNT_LEFT, orderHead.getTotalAmountLeft());
 
         Number newId = insertOrderHead.executeAndReturnKey(parameters);
         orderHead = findById(newId.intValue());
@@ -198,7 +216,13 @@ public class OrderHeadDAL {
                 + Columns.DELIVERY_POSTAL_CODE + " = ?,"
                 + Columns.DELIVERY_CITY + " = ?,"
                 + Columns.DELIVERY_STATE + " = ?,"
-                + Columns.CREATED_BY + " = ? WHERE " + Columns.ID + " = ?";
+                + Columns.CREATED_BY + " = ?,"
+                + Columns.TRANSPORTATION_CHARGES + " = ?,"
+                + Columns.INSTALLATION_CHARGES + " = ?,"
+                + Columns.TOTAL_AMOUNT + " = ?,"
+                + Columns.PAYMENT_MODE + " = ?,"
+                + Columns.TOTAL_AMOUNT_PAID + " = ?,"
+                + Columns.TOTAL_AMOUNT_LEFT + " = ? WHERE " + Columns.ID + " = ?";
         Number updatedCount = jdbcTemplate.update(sqlQuery,
                 new Object[]{
                     orderHead.getOrderNum(),
@@ -223,6 +247,12 @@ public class OrderHeadDAL {
                     orderHead.getDeliveryCity(),
                     orderHead.getDeliveryState(),
                     orderHead.getCreatedBy(),
+                    orderHead.getTransportationCharges(),
+                    orderHead.getInstallationCharges(),
+                    orderHead.getTotalAmount(),
+                    orderHead.getPaymentMode(),
+                    orderHead.getTotalAmountPaid(),
+                    orderHead.getTotalAmountLeft(),
                     orderHead.getId()
                 });
         orderHead = findById(orderHead.getId());

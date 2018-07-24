@@ -9,6 +9,9 @@ and open the template in the editor.
 */
 
 @media (min-width:320px) { 
+    .toggle{
+        margin-bottom: 18px;
+    }
     select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
         border: 1px solid #d6d6d6;
         height: 34px;
@@ -40,9 +43,9 @@ and open the template in the editor.
 
     }
     .main-text{
-        position: absolute;
-        top: 188px;
-        width: 96.66666666666666%;
+        position: unset;
+        width: 100%;
+        padding-top: 35px;
         color: #FFF;
     }
 
@@ -165,20 +168,18 @@ and open the template in the editor.
     .b-right{
         border-bottom: 2px solid #636061;
         border-right: 0px solid #636061;
-        padding-bottom: 20px;
-        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-top: 15px;
+        padding-right: 0;
     }
     .footer-po{
         position: relative;
-        top: -152px;
+        top: 0;
     }
-    .footer-hr-position{
-        position: relative !important;
-        top: -168px !important;
-    }.mt264{
+    .mt264{
         position:relative;
         bottom: 22px;
-        top: -192px;
+        top: 0;
     }.mb245 {
         margin-bottom: 245px;
         margin-top: -0.2em;
@@ -203,7 +204,6 @@ and open the template in the editor.
         position: relative;
         top: 12px;
         left: 9px;
-
     }
     .test-text {
         font-size: 15px !important;
@@ -325,7 +325,6 @@ and open the template in the editor.
 
     }
     .cust-nav{
-        margin-top:28px;
         text-align:right;
     }
     
@@ -408,7 +407,28 @@ and open the template in the editor.
         display:block;
 
     }
-
+    .image,
+    .saleSec1,
+    .saleSec2{
+        height: auto !important;
+    }
+    .image{
+        padding: 15px;
+    }
+    .saleSec1 .container,
+    .saleSec2 .container{
+        padding: 0;
+        -webkit-box-shadow: 0 8px 6px -6px #000;
+            -moz-box-shadow: 0 8px 6px -6px #000;
+                box-shadow: 0 8px 6px -6px #000;
+                border: 1px solid #000;
+    }
+    
+    .mobPad,
+    .row{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
 }
 @media (min-width:481px) { 
     select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
@@ -422,7 +442,7 @@ and open the template in the editor.
     .applyNowform form, .dealer-enquiry form {
         width: 100%;
     }
-
+    
     .clear{
         clear:both;
     }
@@ -538,7 +558,6 @@ and open the template in the editor.
         padding: 0px 0px 0px 0px;
         line-height: 24px;
         list-style-type: none;
-        height: 218px;
     }
     .b-right{
         border-right: 2px solid #636061;
@@ -548,16 +567,9 @@ and open the template in the editor.
     }
     .footer-po{
         position: relative;
-        top: -152px;
+        top: 0;
     }
-    .footer-hr-position{
-        position: relative !important;
-        top: -168px !important;
-    }.mt264{
-        position:relative;
-        bottom: 22px;
-        top: -192px;
-    }.mb245 {
+    .mb245 {
         margin-bottom: 245px;
         margin-top: -5.2em;
     }.footer-form-in-bg {
@@ -613,7 +625,7 @@ and open the template in the editor.
     }
 
     .footer-margin{
-        margin-top: 238px;
+        margin-top: 0;
     }
     .pt80{
         padding-top: 40px;
@@ -794,9 +806,9 @@ and open the template in the editor.
         padding-top: 0px;
     }
     .main-text{
-        position: absolute;
-        top: 0px;
-        width: 96.66666666666666%;
+        position: unset;
+        padding-top: 20px;
+        width: 100%;
         color: #FFF;
     }
     .mrml40{
@@ -902,7 +914,7 @@ and open the template in the editor.
         padding: 0px 0px 0px 0px;
         line-height: 24px;
         list-style-type: none;
-        height: 218px;
+        height: 200px;
     }
     .b-right{
         border-right: 2px solid #636061;
@@ -912,16 +924,9 @@ and open the template in the editor.
     }
     .footer-po{
         position: relative;
-        top: -152px;
+        top: 0;
     }
-    .footer-hr-position{
-        position: relative !important;
-        top: -168px !important;
-    }.mt264{
-        position:relative;
-        bottom: 22px;
-        top: -192px;
-    }.mb245 {
+    .mb245 {
         margin-bottom: 245px;
         margin-top: -5.2em;
     }.footer-form-in-bg {
@@ -1128,7 +1133,11 @@ and open the template in the editor.
     }.copyright-css{
         display:block
     }
-
+    .mobPad,
+    .row{
+        margin-right: -15px !important;
+        margin-left: -15px !important;
+    }
 }
 @media (min-width:961px) {
     select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
@@ -1255,7 +1264,7 @@ and open the template in the editor.
         padding: 0px 0px 0px 0px;
         line-height: 24px;
         list-style-type: none;
-        height: 218px;
+        height: 200px;
     }
     .b-right{
         border-right: 2px solid #636061;
@@ -1265,16 +1274,9 @@ and open the template in the editor.
     }
     .footer-po{
         position: relative;
-        top: -152px;
+        top: 0;
     }
-    .footer-hr-position{
-        position: relative !important;
-        top: -168px !important;
-    }.mt264{
-        position:relative;
-        bottom: 22px;
-        top: -192px;
-    }.mb245 {
+    .mb245 {
         margin-bottom: 245px;
         margin-top: -4.2em;
     }.footer-form-in-bg {
@@ -1615,7 +1617,7 @@ and open the template in the editor.
         padding: 0px 0px 0px 0px;
         line-height: 24px;
         list-style-type: none;
-        height: 218px;
+        height: 140px;
     }
     .b-right{
         border-right: 2px solid #636061;
@@ -1625,16 +1627,9 @@ and open the template in the editor.
     }
     .footer-po{
         position: relative;
-        top: -152px;
+        top: 0;
     }
-    .footer-hr-position{
-        position: relative !important;
-        top: -168px !important;
-    }.mt264{
-        position:relative;
-        bottom: 22px;
-        top: -192px;
-    }.mb245 {
+    .mb245 {
         margin-bottom: 245px;
         margin-top: 2.8em;
     }.footer-form-in-bg {
@@ -2011,7 +2006,6 @@ and open the template in the editor.
         padding: 0px 0px 0px 0px;
         line-height: 24px;
         list-style-type: none;
-        height: 218px;
     }
     .b-right{
         border-right: 2px solid #636061;
@@ -2021,16 +2015,9 @@ and open the template in the editor.
     }
     .footer-po{
         position: relative;
-        top: -152px;
+        top: 0;
     }
-    .footer-hr-position{
-        position: relative !important;
-        top: -168px !important;
-    }.mt264{
-        position:relative;
-        bottom: 22px;
-        top: -192px;
-    }.mb245 {
+    .mb245 {
         margin-bottom: 245px;
         margin-top: 0.8em;
     }.footer-form-in-bg {
@@ -2236,4 +2223,153 @@ and open the template in the editor.
     }
 
 
+}
+.saleBtn{
+    display: none;
+}
+/*-- sales css responsive --*/
+@media only screen and (max-width: 1024px){
+    .alert-info{
+        border-radius: 0 !important;
+    }
+}
+@media only screen and (max-width: 767px){
+    .navbar-brand img{
+        margin: 0 auto;
+    }
+    .navbar-brand{
+        height: auto !important;
+        padding: 0px 15px !important;
+        line-height: normal !important;
+    }
+    .ng-scope .cust-nav1{
+        margin: 0;
+    }
+    .panel-body {
+        padding: 30px !important;
+    }
+    .container {
+        position: unset !important;
+        width: 100% !important;
+    }
+    .cust-nav1{
+        text-align: center;
+    }
+    .overlay{
+       position: unset !important;
+        opacity: 1 !important;
+        background-color: transparent !important;
+    }
+    .text{
+        position: unset !important;
+        transform: unset !important;
+    }
+    .overlay h2{
+        color: #000;
+        padding: 0px !important;
+        border-bottom: none !important;
+        background: #ffb300;
+        padding: 5px 0 !important;
+        margin: 0 auto;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+       }
+    .saleSec1 {
+        border-right: none !important;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .saleBtn {
+        display: block;
+        background: #ffb300;
+        color: #000;
+        padding: 5px 20px;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .mt264.footer-margin{
+        padding-top: 0;
+    }
+    .footer-hr-position{
+        margin: 5px;;
+    }
+    .modal-body label{
+        float: left;
+        margin-bottom: 5px;
+        padding-left: 0 !important;
+    }
+    .modal-footer{
+        text-align: center !important;
+    }
+    .panel{
+        border: none !important;
+    }
+    table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+    thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr { 
+        margin-bottom: 15px;
+        border: 1px solid #000;
+    }
+    .table-striped>tbody>tr:nth-of-type(odd) {
+        background-color: #fff !important;
+    }
+    td {
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding: 15px 10px 15px 140px !important;
+        
+    }
+    td:first-child{
+        background-color: #eee;
+        border-top: none !important;
+        border-bottom: 1px solid #000;
+        text-align: left;
+    }
+    td:last-child{
+        text-align: left !important;
+    }
+    td:before { 
+        content: attr(data-title);
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 35%;
+        text-align: left;
+        padding: 5px 0 0px;
+        font-weight: 600;
+    }
+    .btn-group-lg>.btn, .btn-lg{
+        padding: 5px 10px !important;
+        font-size: 14px !important;
+        border-radius: 0 !important;
+        border: none !important;
+    }    
+    .totalAmount strong{
+        text-align: left;
+        float: left;
+    }
+    .itemCaption p:nth-child(2) {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: justify;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .main-text {
+        position: absolute;
+        padding-top: 50px;;
+        width: 100%;
+        top: 8px;
+    }
 }

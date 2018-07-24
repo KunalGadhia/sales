@@ -42,7 +42,7 @@ angular.module("sales.states", ['ngAnimate', 'ui.bootstrap'])
                         if (data.role === "ROLE_ADMIN") {
                             $state.go("admin.masters");
                         } else if (data.role === "ROLE_EMPLOYEE") {
-                            $state.go("admin.employees");
+                            $state.go("admin.masters");
                         }
                     });
                 }, function () {

@@ -21,21 +21,21 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <label class="col-sm-5 text-left">Name :</label>
-                    <span class="col-sm-7 text-left">{{orderHeadObject.customerName}}</span>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label class="col-sm-5 col-xs-6 text-left">Name :</label>
+                    <p class="col-sm-7 col-xs-6 text-left">{{orderHeadObject.customerName}}</p>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <label class="col-sm-6 text-left">Contact Number :</label>
-                    <span class="col-sm-6 text-left">{{orderHeadObject.contactNum}}</span>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label class="col-sm-6 col-xs-6 text-left">Contact Number :</label>
+                    <p class="col-sm-6 col-xs-6 text-left">{{orderHeadObject.contactNum}}</p>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <label class="col-sm-5 text-left">Email Id :</label>
-                    <span class="col-sm-7 text-left">{{orderHeadObject.emailId}}</span>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label class="col-sm-5 col-xs-6 text-left">Email Id :</label>
+                    <p class="col-sm-7 col-xs-6 text-left">{{orderHeadObject.emailId}}</p>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <label class="col-sm-5 text-left">Order Date :</label>
-                    <span class="col-sm-7 text-left">{{orderHeadObject.bookingDate| date}}</span>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label class="col-sm-5 col-xs-6 text-left">Order Date :</label>
+                    <p class="col-sm-7 col-xs-6 text-left">{{orderHeadObject.bookingDate| date}}</p>
                 </div>
             </div>           
         </div>        
@@ -118,7 +118,7 @@
             <h3>Product Details List</h3>
         </div>
         <div class="modal-body">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover table-responsive">
                 <thead>
                     <tr>
                         <th class="text-right">#</th>
@@ -132,13 +132,13 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="orderDetails in orderDetailsList">
-                        <td class="text-right">{{ currentOffset + $index + 1}}</td>
-                        <td class="text-left">{{ orderDetails.productCode}}</td>
-                        <td class="text-left">{{orderDetails.productName}}</td>
-                        <td class="text-left">{{orderDetails.productColor}}</td>
-                        <td class="text-left">{{orderDetails.quantity}}</td>                        
-                        <td class="text-left">&#8377; {{orderDetails.price| number:2}}</td>                        
-                        <td class="text-right">                            
+                        <td data-title="#" class="text-right">{{ currentOffset + $index + 1}}</td>
+                        <td data-title="Product Code" class="text-left">{{ orderDetails.productCode}}</td>
+                        <td data-title="Product Description" class="text-left">{{orderDetails.productName}}</td>
+                        <td data-title="Color" class="text-left">{{orderDetails.productColor}}</td>
+                        <td data-title="Quantity" class="text-left">{{orderDetails.quantity}}</td>                        
+                        <td data-title="Price" class="text-left">&#8377; {{orderDetails.price| number:2}}</td>                        
+                        <td data-title="Actions" class="text-right">                            
                             <a data-ui-sref="admin.order_details.order_delete({ orderDetailId: orderDetails.id})"
                                class="btn btn-danger">
                                 <i class="fa fa-trash"></i>
@@ -148,9 +148,9 @@
                 </tbody>
             </table>
             <hr style="border-top: 2px solid">
-            <div class="row">
-                <div class="col-md-10 col-lg-10 col-sm-10 text-right"><strong>Total Amount :</strong></div>
-                <div class="col-md-2 col-lg-2 col-sm-2 text-center"><strong>&#8377; {{ orderDetailsList | total:'price' | number:2}}</strong></div>
+            <div class="row totalAmount">
+                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-7 text-right"><strong>Total Amount :</strong></div>
+                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-5 text-center"><strong>&#8377; {{ orderDetailsList | total:'price' | number:2}}</strong></div>
             </div>
         </div>
     </div>
