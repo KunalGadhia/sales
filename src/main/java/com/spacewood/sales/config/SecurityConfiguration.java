@@ -82,6 +82,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                             HttpServletResponse response,
                             AuthenticationException ae) throws IOException, ServletException {
                         System.out.println("Is there any problem with the credentials");
+                        System.out.println("Exceptions {}"+ae);
+                        System.out.println("Request {}"+request);
+                        System.out.println("Response {}"+response);
+                        System.out.println("Is there any problem with the credentials");
                         logger.debug("Exceptions :{}", ae);
                         logger.debug("Request :{}", request);
                         logger.debug("Response :{}", response);

@@ -31,14 +31,16 @@ angular.module("sales.states", ['ngAnimate', 'ui.bootstrap'])
                 $scope.message = false;
             }, 3000);
             $scope.login = function (username, password) {
+                console.log("Username :%O", username);
                 UserService.login({
                     'username': username,
                     'password': password
                 }, function (data) {
+                    console.log("getting any data after login ?? %O", data);
                     AuthFactory.refresh();
                     UserService.findByUsername({
                         'username': data.username
-                    }, function (data) {                        
+                    }, function (data) {
                         if (data.role === "ROLE_ADMIN") {
                             $state.go("admin.masters");
                         } else if (data.role === "ROLE_EMPLOYEE") {

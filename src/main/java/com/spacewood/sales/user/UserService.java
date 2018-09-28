@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserService implements UserDetailsService {
+
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
@@ -46,9 +47,10 @@ public class UserService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {        
-        try {            
-            User user = userDAL.findByUsername(string);            
+    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
+        try {
+            logger.info("Anything in User Service :" + string);
+            User user = userDAL.findByUsername(string);
             SimpleGrantedAuthority sga = new SimpleGrantedAuthority(user.getRole().name());
 
             List<SimpleGrantedAuthority> authorities = new ArrayList<>();
@@ -58,8 +60,9 @@ public class UserService implements UserDetailsService {
                     user.getUsername(),
                     user.getPassword(),
                     roleHierarchy.getReachableGrantedAuthorities(authorities));
+            logger.info("User Details :",ud);
             return ud;
-        } catch (EmptyResultDataAccessException se) {            
+        } catch (EmptyResultDataAccessException se) {
             se.printStackTrace();
             throw new UsernameNotFoundException("SQL Error", se);
         }

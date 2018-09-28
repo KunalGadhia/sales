@@ -1,3 +1,509 @@
+/*
+ * Sales CSS File..
+ */
+/*-- Imported Style --*/
+@import url(bootstrap.min.css);
+@import url(icofont/icofont.css);
+@import url(font-awesome.min.css);
+@import url(animate.css);
+/*-- custom fonts --*/
+@font-face {
+  font-family: Akzidenz-Grotesk BQ Light;
+  src: url(../fonts/akzidenz-grotesk/akzidenz-grotesk-bq-light-.otf); 
+}
+@font-face {
+  font-family: Akzidenz-Grotesk BQ;
+  src: url(../fonts/akzidenz-grotesk/Akzidenz-Grotesk-BQ-Medium.ttf);
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../fonts/Helvetica-family-font/Helvetica___.ttf);
+}
+h2{
+  font-family: Akzidenz-Grotesk BQ Light;
+}
+h3{
+  font-family: Akzidenz-Grotesk BQ;
+}
+button{
+  font-family: Helvetica;
+}
+ul li a{
+  font-family:Akzidenz-Grotesk BQ Light;
+}
+/*--  Global Styles --*/
+html,
+body{
+  font-family: 'Helvetica', sans-serif;
+  background-color: rgba(0,0,0,0.1);
+}
+*:focus {
+  outline: 0 !important;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 2px solid #bcbec0;
+}
+ul li{
+  list-style: none;
+}
+a{
+  color: #000;
+  text-decoration: none;
+  font-family: Helvetica;
+}
+a:hover, a:focus{
+  color: #ffb300;
+}
+h1, h2, h3, h4{
+  color: #000;
+  text-transform: uppercase;
+}
+p{
+  color: #000;
+  font-family: Helvetica;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  -webkit-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  transition-duration: 500ms;
+  font-weight: 500;
+}
+li{
+  list-style: none;
+}
+p{
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+}
+input {
+  outline: none;
+  border: none;
+}
+textarea {
+  outline: none;
+  border: none;
+}
+textarea:focus,
+input:focus {
+  border-color: transparent !important;
+}
+input:focus::-webkit-input-placeholder {
+  color:transparent;
+}
+input:focus:-moz-placeholder {
+  color:transparent;
+}
+input:focus::-moz-placeholder {
+  color:transparent;
+}
+input:focus:-ms-input-placeholder {
+  color:transparent;
+}
+textarea:focus::-webkit-input-placeholder {
+  color:transparent;
+}
+textarea:focus:-moz-placeholder {
+  color:transparent;
+}
+textarea:focus::-moz-placeholder {
+  color:transparent;
+}
+textarea:focus:-ms-input-placeholder {
+  color:transparent;
+}
+input::-webkit-input-placeholder {
+  color: #000;
+}
+input:-moz-placeholder {
+  color: #000;
+}
+input::-moz-placeholder {
+  color: #000;
+}
+input:-ms-input-placeholder {
+  color: #000;
+}
+textarea::-webkit-input-placeholder {
+  color: #000;
+}
+textarea:-moz-placeholder {
+  color: #000;
+}
+textarea::-moz-placeholder {
+  color: #000;
+}
+textarea:-ms-input-placeholder {
+color: #000;
+}
+label {
+  margin: 0;
+  display: block;
+}
+/*
+ * preloader 
+ */
+.js div#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: #fff url('../loading.gif') no-repeat center center; 
+}
+/*
+ * Login Form
+ */
+.loginFormArea {
+  background-attachment: fixed;
+  width: 100%;  
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+.loginFormArea::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.8);
+  background-image: url(../images/dots-bg.png);
+}
+.loginHeader{
+  background: #fff;
+  padding: 10px 30px;
+  position: relative;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+.borderBox{
+  position: absolute;
+  content: '';
+  left: -10px;
+  bottom: 10px;
+  top: -10px;
+  right: 10px;
+  z-index: -1;
+  border: 2px solid #ffb300;
+}
+.pageTitle h2{
+  margin: 0;
+  color: #000;
+  text-align: center;
+  font-size: 35px;
+}
+.pageTitle h2 span{
+  font-weight: 600;
+  font-size: 45px;
+}
+.logoBox{
+  display: inline-block;
+}
+.pageTitle{
+  float: right;
+}
+.loginForm{
+  width: 400px;
+  padding: 60px 40px 40px;
+  background: #ffb300;
+  background: -webkit-linear-gradient(top, #fff, #ffb300);
+  background: -o-linear-gradient(top, #fff, #ffb300);
+  background: -moz-linear-gradient(top, #fff, #ffb300);
+  background: linear-gradient(top, #fff, #ffb300);
+  margin: 0px auto;
+  margin-top: 100px;
+  position: relative;
+  margin-bottom: 15px;
+  border: 1px solid #000;
+  -webkit-box-shadow: -6px 6px 0px -3px #ffb300, 6px -6px 0px -3px #fff000;
+    -moz-box-shadow: -6px 6px 0px -3px #ffb300, 6px -6px 0px -3px #fff000;
+      box-shadow: -6px 6px 0px -3px #ffb300, 6px -6px 0px -3px #fff000;
+}
+/*-- Form --*/
+.login100Form {
+  width: 100%;
+}
+.loginFormIcon {
+  font-size: 50px;
+  color: #000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -50px;
+  -webkit-box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.35);
+      box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.35);
+}
+.loginFormTitle h3{
+  font-size: 30px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 15px;
+  display: block;
+}
+/*-- Input --*/
+.inputDiv {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid rgba(0,0,0,0.35);
+  margin-bottom: 30px;
+}
+.loginInput {
+  font-size: 16px;
+  color: #000;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  padding: 0 5px 0 38px;
+}
+/*-- Input Focus --*/ 
+.finputFocus {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.finputFocus::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #000;
+}
+.finputFocus i {
+  font-size: 22px;
+  color: #000;
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  padding-left: 5px;
+  -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.loginInput:focus {
+  padding-left: 5px;
+}
+.loginInput:focus + .finputFocus i {
+  top: -18px;
+  font-size: 18px;
+}
+.loginInput:focus + .finputFocus::before {
+  width: 100%;
+}
+.hasValidate.loginInput + .finputFocus i {
+  top: -18px;
+  font-size: 18px;
+}
+.hasValidate.loginInput + .finputFocus::before {
+  width: 100%;
+}
+.hasValidate.loginInput {
+  padding-left: 5px;
+}
+/*-- Submit Button --*/
+.loginButton {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.loginFormBtn {
+  font-size: 20px;
+  color: #000;
+  line-height: 1.2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 120px;
+  height: 50px;
+  border-radius: 25px;
+  background: #000;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  border: 0;
+}
+.loginFormBtn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.loginFormBtn:hover {
+  color: #fff;
+  background-color: #000;
+}
+.loginFormBtn:hover:before {
+  opacity: 0;
+}
+/*-- Alert validate --*/
+.FormValidateInput {
+  position: relative;
+}
+.FormValidateInput.alertValidate{
+  border-color: #ff0000;
+}
+.alertValidate::before {
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: #fff;
+  border: 1px solid #ff0000;
+  border-radius: 2px;
+  padding: 4px 25px 4px 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 0px;
+  pointer-events: none;
+  color: #ff0000;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  transition: opacity 1s;
+}
+.alertValidate::after {
+  content: "\ef19";
+  font-family: IcoFont;
+  font-size: 16px;
+  color: #ff0000;
+  display: block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================================================================
+Old CSS 
+===========================================================================*/
+
 .no-padding{
     padding-left:0px;
     padding-right:0px;

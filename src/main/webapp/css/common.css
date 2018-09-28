@@ -12,14 +12,14 @@ and open the template in the editor.
     .toggle{
         margin-bottom: 18px;
     }
-    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
+/*    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
         border: 1px solid #d6d6d6;
         height: 34px;
         padding: 5px 15px;
         width: 100%;
         color:black;
         margin-bottom: 0px;
-    } 
+    } */
     #wpsl-result-list {
         max-height: 660px !important;
         /*overflow-y: scroll !important;*/
@@ -431,14 +431,14 @@ and open the template in the editor.
     }
 }
 @media (min-width:481px) { 
-    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
+/*    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
         border: 1px solid #d6d6d6;
         height: 34px;
         padding: 5px 15px;
         width: 100%;
         color:black;
         margin-bottom: 0px;
-    }
+    }*/
     .applyNowform form, .dealer-enquiry form {
         width: 100%;
     }
@@ -780,14 +780,14 @@ and open the template in the editor.
 
 }
 @media (min-width:641px) { 
-    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
+/*    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
         border: 1px solid #d6d6d6;
         height: 29px;
         padding: 5px 15px;
         width: 100%;
         color:black;
         margin-bottom: -10px;
-    }
+    }*/
     #wpsl-gmap {
         max-height:660px !important;
         width:70% !important;
@@ -1140,14 +1140,14 @@ and open the template in the editor.
     }
 }
 @media (min-width:961px) {
-    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
+/*    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
         border: 1px solid #d6d6d6;
         height: 28px;
         padding: 5px 15px;
         width: 100%;
         color:black;
         margin-bottom: -8px;
-    }
+    }*/
     .clear{
         clear:none;
     }
@@ -1482,14 +1482,14 @@ and open the template in the editor.
 
 }
 @media (min-width:1025px) {
-    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
+/*    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
         border: 1px solid #d6d6d6;
         height: 34px;
         padding: 5px 15px;
         width: 100%;
         color:black;
         margin-bottom: 0px;
-    } 
+    } */
     #wpsl-gmap {
         max-height:660px !important;
         width:70% !important;
@@ -1833,14 +1833,14 @@ and open the template in the editor.
 
 }
 @media (min-width:1281px) {
-    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
+/*    select, input[type="text"], input[type="email"], textarea, input[type="tel"], textarea, input[type="number"] {
         border: 1px solid #d6d6d6;
         height: 34px;
         padding: 5px 15px;
         width: 100%;
         color:black;
         margin-bottom: 0px;
-    }  
+    }  */
     #wpsl-gmap {
         max-height:660px !important;
         width:70% !important;

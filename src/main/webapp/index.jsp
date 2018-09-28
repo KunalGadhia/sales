@@ -131,7 +131,7 @@
             img {
                 border: none;
             }
-            h2 {
+/*            h2 {
                 font: bold 14px/110% Arial, Helvetica, sans-serif;
                 margin: 0 0 30px;
                 padding: 0 0 20px;
@@ -142,7 +142,7 @@
             h3 {
                 font: bold 16px/120% Arial, Helvetica, sans-serif;
                 margin: 0;
-            }
+            }*/
             #pagewrap {
                 width: 948px;
                 margin: 0 auto;
@@ -364,11 +364,13 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/corporate_site.css"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/angular-bootstrap-lightbox.css"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/w3.css"/>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/responsive.css"/>
 
         <!--JavaScript-->
         <script src="${pageContext.request.contextPath}/js/app.js"></script>
         <script src="${pageContext.request.contextPath}/js/auth.js"></script>
         <script src="${pageContext.request.contextPath}/js/filters.js"></script>
+        <script src="${pageContext.request.contextPath}/js/custom.js"></script>
 <!--        <script src="${pageContext.request.contextPath}/js/directives/datetime_picker.js"></script>
         
         <!--states-->

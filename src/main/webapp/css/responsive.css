@@ -1,0 +1,77 @@
+/*
+ * SALES Responsive Media File.
+ */
+/*---For Small Desktop----*/
+@media only screen and (max-width:768px) {
+	.loginHeader {
+    	text-align: center;
+	    margin-left: 10px;
+	}
+	.loginForm{
+    	margin-top: 80px;
+	}
+}
+
+/*-- Mobile (Portrait) --*/
+@media only screen and (max-width: 767px) {
+	.borderBox {
+	    left: -5px;
+	    bottom: 5px;
+	    top: -5px;
+	    right: 5px;
+	}
+	.loginHeader {
+    	margin-left: 5px;
+    	margin-top: 20px;
+	}
+	.logoBox {
+    	display: block;
+	}
+	.pageTitle {
+    	float: none;
+	}
+	.pageTitle h2{
+		font-size: 18px;
+		line-height: 25px;
+	}
+	.loginFormIcon{
+		width: 80px;
+    	height: 80px;
+    	top: -45px;
+	}
+	.logoBox img{
+		max-width: 40%;
+	}
+	.loginFormTitle h3 {
+    	font-size: 22px;
+	}
+	.loginForm {
+    	padding: 40px 15px 15px;
+    	margin-top: 70px;
+	}
+	.login100Form {
+    	margin-top: 30px;
+	}
+}
+/*-- Mobile media for a width of 480px --*/
+@media only screen and (min-width: 320px) and (max-width: 480px){
+	.loginHeader {
+    	padding: 5px 15px;
+	}
+	.loginForm {
+    	width: 100%;
+    }
+    .loginInput{
+	    height: 35px;
+    }
+    .finputFocus i {
+    	font-size: 20px;
+    	top: 5px;
+	}
+
+}
+@media only screen and (max-width: 320px){
+	
+}
+
+
